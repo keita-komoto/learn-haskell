@@ -3,3 +3,12 @@ name: learn-haskell
 version: 0.1.0.0
 author: KOMOTO Keita
 build-type: Simple
+
+library
+  exposed-modules:
+    Chapter01
+    Chapter02
+    Chapter03
+    Chapter04
+
+  build-depends: base
