@@ -13,3 +13,19 @@ library
 
   hs-source-dirs: app
   build-depends: base
+
+test-suite test
+  type: exitcode-stdio-1.0
+  main-is: Driver.hs
+  hs-source-dirs: test
+  build-depends:
+    base,
+    learn-haskell,
+    tasty,
+    tasty-hunit
+
+  other-modules:
+    Chapter01Test
+
+  build-tool-depends:
+    tasty-discover:tasty-discover
