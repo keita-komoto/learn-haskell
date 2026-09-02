@@ -11,4 +11,5 @@ library
     Chapter03
     Chapter04
 
+  hs-source-dirs: app
   build-depends: base
