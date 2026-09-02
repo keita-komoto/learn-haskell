@@ -29,3 +29,5 @@ test-suite test
 
   build-tool-depends:
     tasty-discover:tasty-discover
+
+  ghc-options: -Wno-missing-signatures
