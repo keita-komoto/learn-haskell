@@ -1,0 +1,5 @@
+cabal-version: 3.16
+name: learn-haskell
+version: 0.1.0.0
+author: KOMOTO Keita
+build-type: Simple
