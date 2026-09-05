@@ -22,7 +22,9 @@ test-suite test
     base,
     learn-haskell,
     tasty,
-    tasty-hunit
+    tasty-hunit,
+    hedgehog,
+    tasty-hedgehog,
 
   other-modules:
     Chapter01Test
