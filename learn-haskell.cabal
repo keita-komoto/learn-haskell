@@ -10,6 +10,7 @@ library
     Chapter02
     Chapter03
     Chapter04
+    Chapter05
 
   hs-source-dirs: app
   build-depends: base
@@ -29,6 +30,7 @@ test-suite test
 
   other-modules:
     Chapter01Test
+    Chapter05Test
     Rerun
 
   build-tool-depends:
