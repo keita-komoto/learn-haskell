@@ -17,3 +17,8 @@ hprop_quicksortIsMinOrderString = property $ do
   xs <- forAll $ Gen.list (Range.linear 0 100) (Gen.list (Range.linear 0 100) Gen.alpha)
   let result = quicksort xs
   assert (and (zipWith (<=) result (drop 1 result)))
+
+unit_compareWithHundred = do
+  compareWithHundred 100 @?= EQ
+  compareWithHundred 99 @?= GT
+  compareWithHundred 101 @?= LT
