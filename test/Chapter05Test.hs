@@ -25,3 +25,11 @@ unit_compareWithHundred = do
   compareWithHundred 100 @?= EQ
   compareWithHundred 99 @?= GT
   compareWithHundred 101 @?= LT
+
+unit_zipWith' = do
+  zipWith' (+) [1, 2, 3] [4, 5, 6] @?= [5, 7, 9]
+  zipWith' (*) [1, 2, 3] [4, 5, 6] @?= [4, 10, 18]
+  zipWith' (++) ["a", "b", "c"] ["d", "e", "f"] @?= ["ad", "be", "cf"]
+  zipWith' max [1, 2, 3] [4, 5, 6] @?= [4, 5, 6]
+  zipWith' (*) (replicate 5 2) [1 ..] @?= [2, 4, 6, 8, 10]
+  zipWith' (zipWith' (*)) [[1, 2, 3], [3, 5, 6], [2, 3, 4]] [[3, 2, 2], [3, 4, 5], [5, 4, 3]] @?= [[3, 4, 6], [9, 20, 30], [10, 12, 12]]
