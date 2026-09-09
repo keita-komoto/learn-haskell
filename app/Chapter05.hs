@@ -69,6 +69,4 @@ chain n
 -- >>> numLongChains
 -- 66
 numLongChains :: Int
-numLongChains = length (filter isLong (map chain [1 .. 100]))
-  where
-    isLong xs = length xs > 15
+numLongChains = length (filter (\xs -> length xs > 15) (map chain [1 .. 100]))
