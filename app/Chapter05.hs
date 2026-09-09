@@ -53,3 +53,22 @@ largestDivisible :: Integer
 largestDivisible = head (filter p [100000, 99999 ..])
   where
     p x = x `mod` 3829 == 0
+
+-- | Generate the Collatz sequence for a given number
+-- >>> chain 1
+-- [1]
+-- >>> chain 10
+-- [10,5,16,8,4,2,1]
+chain :: Integer -> [Integer]
+chain 1 = [1]
+chain n
+  | even n = n : chain (n `div` 2)
+  | odd n = n : chain (n * 3 + 1)
+
+-- | Count how many Collatz sequences for numbers 1 to 100 have a length greater than 15
+-- >>> numLongChains
+-- 66
+numLongChains :: Int
+numLongChains = length (filter isLong (map chain [1 .. 100]))
+  where
+    isLong xs = length xs > 15

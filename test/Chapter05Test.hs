@@ -56,3 +56,7 @@ unit_quicksortEqualQuicksortWithFilter = do
   quicksort stringItems @?= quicksortWithFilter stringItems
 
 unit_largestDivisible = largestDivisible @?= 99554
+
+unit_chain = do
+  chain 1 @?= [1]
+  chain 10 @?= [10, 5, 16, 8, 4, 2, 1]
