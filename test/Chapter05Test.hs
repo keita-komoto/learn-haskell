@@ -50,3 +50,7 @@ unit_filter' = do
   filter' even [1 .. 10] @?= [2, 4, 6, 8, 10]
   filter' (`elem` ['A' .. 'Z']) "iLAuGh at you bEcause uR all the same" @?= "LAGER"
   filter' (< 15) (filter' even [1 .. 20]) @?= [2, 4, 6, 8, 10, 12, 14]
+
+unit_quicksortEqualQuicksortWithFilter = do
+  quicksort randomIntItems @?= quicksortWithFilter randomIntItems
+  quicksort stringItems @?= quicksortWithFilter stringItems

@@ -31,3 +31,10 @@ filter' _ [] = []
 filter' p (x : xs)
   | p x = x : filter' p xs
   | otherwise = filter' p xs
+
+quicksortWithFilter :: Ord a => [a] -> [a]
+quicksortWithFilter [] = []
+quicksortWithFilter (x : xs) =
+  let smallerSorted = quicksortWithFilter (filter' (<= x) xs)
+      largerSorted = quicksortWithFilter (filter' (> x) xs)
+  in smallerSorted ++ [x] ++ largerSorted
