@@ -11,6 +11,13 @@ quicksort (x : xs) =
       biggerSorted = quicksort [a | a <- xs, a > x]
   in smallerSorted ++ [x] ++ biggerSorted
 
+-- | Compare a number with 100
+-- >>> compareWithHundred 100
+-- EQ
+-- >>> compareWithHundred 99
+-- GT
+-- >>> compareWithHundred 101
+-- LT
 compareWithHundred :: Int -> Ordering
 compareWithHundred = compare 100
 
