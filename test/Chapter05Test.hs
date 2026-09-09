@@ -54,3 +54,5 @@ unit_filter' = do
 unit_quicksortEqualQuicksortWithFilter = do
   quicksort randomIntItems @?= quicksortWithFilter randomIntItems
   quicksort stringItems @?= quicksortWithFilter stringItems
+
+unit_largestDivisible = largestDivisible @?= 99554

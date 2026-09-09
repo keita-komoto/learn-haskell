@@ -45,3 +45,11 @@ quicksortWithFilter (x : xs) =
   let smallerSorted = quicksortWithFilter (filter' (<= x) xs)
       largerSorted = quicksortWithFilter (filter' (> x) xs)
   in smallerSorted ++ [x] ++ largerSorted
+
+-- | Find the largest number under 100000 that is divisible by 3829
+-- >>> largestDivisible
+-- 99554
+largestDivisible :: Integer
+largestDivisible = head (filter p [100000, 99999 ..])
+  where
+    p x = x `mod` 3829 == 0
