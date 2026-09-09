@@ -21,12 +21,12 @@ test-suite test
   hs-source-dirs: test
   build-depends:
     base,
+    hedgehog,
     learn-haskell,
     tasty,
-    tasty-hunit,
-    hedgehog,
     tasty-hedgehog,
-    tasty-rerun
+    tasty-hunit,
+    tasty-rerun,
 
   other-modules:
     Chapter01Test
