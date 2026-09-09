@@ -45,3 +45,8 @@ unit_map = do
   map' (replicate 3) [3 .. 6] @?= [[3, 3, 3], [4, 4, 4], [5, 5, 5], [6, 6, 6]]
   map' (map' (^ 2)) [[1, 2], [3, 4, 5, 6], [7, 8]] @?= [[1, 4], [9, 16, 25, 36], [49, 64]]
   map' fst [(1, 2), (3, 5), (6, 3), (2, 6), (2, 5)] @?= [1, 3, 6, 2, 2]
+
+unit_filter' = do
+  filter' even [1 .. 10] @?= [2, 4, 6, 8, 10]
+  filter' (`elem` ['A' .. 'Z']) "iLAuGh at you bEcause uR all the same" @?= "LAGER"
+  filter' (< 15) (filter' even [1 .. 20]) @?= [2, 4, 6, 8, 10, 12, 14]
