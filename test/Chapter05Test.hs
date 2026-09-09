@@ -62,3 +62,6 @@ unit_largestDivisible = largestDivisible @?= 99554
 unit_chain = do
   chain 1 @?= [1]
   chain 10 @?= [10, 5, 16, 8, 4, 2, 1]
+
+unit_sum' = do
+  sum' [3, 5, 2, 1] @?= 11
