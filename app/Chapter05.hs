@@ -45,15 +45,15 @@ filter' p (x : xs)
 quicksortWithFilter :: Ord a => [a] -> [a]
 quicksortWithFilter [] = []
 quicksortWithFilter (x : xs) =
-  let smallerSorted = quicksortWithFilter (filter' (<= x) xs)
-      largerSorted = quicksortWithFilter (filter' (> x) xs)
+  let smallerSorted = quicksortWithFilter $ filter' (<= x) xs
+      largerSorted = quicksortWithFilter $ filter' (> x) xs
   in smallerSorted ++ [x] ++ largerSorted
 
 -- | Find the largest number under 100000 that is divisible by 3829
 -- >>> largestDivisible
 -- 99554
 largestDivisible :: Integer
-largestDivisible = head (filter p [100000, 99999 ..])
+largestDivisible = head $ filter p [100000, 99999 ..]
   where
     p x = x `mod` 3829 == 0
 
@@ -95,8 +95,5 @@ elem' y ys = foldr (\x acc -> if x == y then True else acc) False ys
 -- | Extract the maximum value from the list
 -- >>> maximum' [1..10]
 -- 10
--- >>> maximum' []
--- Prelude.foldl1: empty list
--- IPE backtrace:
 maximum' :: Ord a => [a] -> a
 maximum' = foldl1 max
