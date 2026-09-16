@@ -106,4 +106,4 @@ inverter = map (negate . abs)
 -- | Remove the first element, find the sum of the list, and then negate the result
 -- >>> inverter' [[1..5],[3..6],[1..7]]
 -- [-14,-15,-27]
-inverter' = map (\xs -> negate (sum (tail xs)))
+inverter' = map $ negate . sum . tail
