@@ -77,3 +77,9 @@ numLongChains = length (filter (\xs -> length xs > 15) (map chain [1 .. 100]))
 sum' :: Num a => [a] -> a
 sum' = foldl (+) 0
 
+-- 無限リストを評価させるとぶっ壊れる
+mapL :: (a -> b) -> [a] -> [b]
+mapL f xs = foldl (\acc x -> acc ++ [f x]) [] xs
+
+mapR :: (a -> b) -> [a] -> [b]
+mapR f xs = foldr (\x acc -> f x : acc) [] xs

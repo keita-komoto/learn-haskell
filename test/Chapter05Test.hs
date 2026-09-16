@@ -65,3 +65,11 @@ unit_chain = do
 
 unit_sum' = do
   sum' [3, 5, 2, 1] @?= 11
+
+unit_mapL = do
+  mapL (+ 3) [1, 5, 3, 1, 6] @?= map' (+ 3) [1, 5, 3, 1, 6]
+
+-- mapL (+ 3) [1, 2 ..] @?= 壊れる
+
+unit_mapR = do
+  mapR (+ 3) [1, 5, 3, 1, 6] @?= map' (+ 3) [1, 5, 3, 1, 6]
