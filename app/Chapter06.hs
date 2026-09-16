@@ -1,5 +1,6 @@
 module Chapter06 where
 
+import qualified Data.Char as C
 import qualified Data.List as L
 
 -- | Remove duplicates on the list
@@ -23,3 +24,15 @@ wordNum = map (\ws -> (head ws, length ws)) . L.group . L.sort . L.words
 -- False
 isIn :: Eq a => [a] -> [a] -> Bool
 needle `isIn` haystack = any (needle `L.isPrefixOf`) $ L.tails haystack
+
+-- | Use a Caesar cipher
+-- >>> encode 3 "hey mark"
+-- "kh|#pdun"
+encode :: Int -> String -> String
+encode offset message = map (\c -> C.chr $ C.ord c + offset) message
+
+-- | Decode a Caesar cipher
+-- >>> decode 3 "kh|#pdun"
+-- "hey mark"
+decode :: Int -> String -> String
+decode shift message = encode (negate shift) message
