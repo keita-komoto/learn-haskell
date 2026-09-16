@@ -83,3 +83,11 @@ mapL f xs = foldl (\acc x -> acc ++ [f x]) [] xs
 
 mapR :: (a -> b) -> [a] -> [b]
 mapR f xs = foldr (\x acc -> f x : acc) [] xs
+
+-- | Check if it's on the list
+-- >>> elem' 5 [1..5]
+-- True
+-- >>> elem' 5 [1..4]
+-- False
+elem' :: Eq a => a -> [a] -> Bool
+elem' y ys = foldr (\x acc -> if x == y then True else acc) False ys

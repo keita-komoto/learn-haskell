@@ -73,3 +73,7 @@ unit_mapL = do
 
 unit_mapR = do
   mapR (+ 3) [1, 5, 3, 1, 6] @?= map' (+ 3) [1, 5, 3, 1, 6]
+
+unit_elem = do
+  elem' 4 [3, 4, 5] @?= True
+  elem' 10 [3, 4, 5] @?= False
