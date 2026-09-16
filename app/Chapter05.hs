@@ -98,9 +98,7 @@ elem' y ys = foldr (\x acc -> if x == y then True else acc) False ys
 maximum' :: Ord a => [a] -> a
 maximum' = foldl1 max
 
--- | Invert the sign of the positive numbers in the list
--- >>> negate' [5,-3,-6,7,-3,2,-19,24]
--- WAS [-5,-3,-6,-7,-3,-2,-19,-24]
--- NOW Variable not in scope:
--- NOW   negate' :: [a0_a3bKJ[tau:1]] -> t_a3bKD[sk:1]
-negate' = map (\x -> negate (abs x))
+-- | Invert positive numbers in the list
+-- >>> inverter [5,-3,-6,7,-3,2,-19,24]
+-- [-5,-3,-6,-7,-3,-2,-19,-24]
+inverter = map (negate . abs)
