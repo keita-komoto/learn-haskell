@@ -48,3 +48,23 @@ digitSum = sum . map C.digitToInt . show
 -- Just 49
 firstTo :: Int -> Maybe Int
 firstTo n = L.find (\x -> digitSum x == n) [1 ..]
+
+phoneBook =
+  [ ("betty", "111-2222"),
+    ("bonnie", "222-3333"),
+    ("patsy", "333-4444"),
+    ("lucille", "444-5555"),
+    ("wendy", "555-6666"),
+    ("penny", "666-7777")
+  ]
+
+-- Find a key from an association list
+-- >>> findKey "betty" phoneBook
+-- Just "111-2222"
+-- >>> findKey "macho" phoneBook
+-- Nothing
+findKey :: Eq k => k -> [(k, v)] -> Maybe v
+findKey key [] = Nothing
+findKey key ((k, v) : xs)
+  | key == k = Just v
+  | otherwise = findKey key xs
