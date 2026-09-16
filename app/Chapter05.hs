@@ -102,3 +102,8 @@ maximum' = foldl1 max
 -- >>> inverter [5,-3,-6,7,-3,2,-19,24]
 -- [-5,-3,-6,-7,-3,-2,-19,-24]
 inverter = map (negate . abs)
+
+-- | Remove the first element, find the sum of the list, and then negate the result
+-- >>> inverter' [[1..5],[3..6],[1..7]]
+-- [-14,-15,-27]
+inverter' = map (\xs -> negate (sum (tail xs)))
