@@ -7,3 +7,11 @@ import qualified Data.List as L
 -- 4
 numUniques :: Eq a => [a] -> Int
 numUniques = length . L.nub
+
+wawee = "wa wa wee wa wee"
+
+-- | Count the frequency of words
+-- >>> wordNum wawee
+-- [("wa",3),("wee",2)]
+wordNum :: String -> [(String, Int)]
+wordNum xs = map (\ws -> (head ws, length ws)) (L.group (L.sort (L.words xs)))
