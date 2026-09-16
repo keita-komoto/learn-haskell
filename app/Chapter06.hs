@@ -2,6 +2,7 @@ module Chapter06 where
 
 import qualified Data.Char as C
 import qualified Data.List as L
+import qualified Data.Map as M
 
 -- | Remove duplicates on the list
 -- >>> numUniques [1,2,1,3,1,4]

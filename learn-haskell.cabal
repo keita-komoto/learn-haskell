@@ -14,7 +14,7 @@ library
     Chapter06
 
   hs-source-dirs: app
-  build-depends: base
+  build-depends: containers ^>=0.7, base
 
 test-suite test
   type: exitcode-stdio-1.0
