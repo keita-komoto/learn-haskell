@@ -22,4 +22,4 @@ wordNum = map (\ws -> (head ws, length ws)) . L.group . L.sort . L.words
 -- >>> [1,2] `isIn` [1,3,5]
 -- False
 isIn :: Eq a => [a] -> [a] -> Bool
-needle `isIn` haystack = any (needle `L.isPrefixOf`) (L.tails haystack)
+needle `isIn` haystack = any (needle `L.isPrefixOf`) $ L.tails haystack
