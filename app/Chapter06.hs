@@ -36,3 +36,9 @@ encode offset = map (\c -> C.chr $ C.ord c + offset)
 -- "hey mark"
 decode :: Int -> String -> String
 decode shift = encode (negate shift)
+
+-- | Returns the sum of the digits
+-- >>> digitSum 12345
+-- 15
+digitSum :: Int -> Int
+digitSum = sum . map C.digitToInt . show
