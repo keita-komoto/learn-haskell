@@ -29,10 +29,10 @@ needle `isIn` haystack = any (needle `L.isPrefixOf`) $ L.tails haystack
 -- >>> encode 3 "hey mark"
 -- "kh|#pdun"
 encode :: Int -> String -> String
-encode offset message = map (\c -> C.chr $ C.ord c + offset) message
+encode offset = map (\c -> C.chr $ C.ord c + offset)
 
 -- | Decode a Caesar cipher
 -- >>> decode 3 "kh|#pdun"
 -- "hey mark"
 decode :: Int -> String -> String
-decode shift message = encode (negate shift) message
+decode shift = encode (negate shift)
