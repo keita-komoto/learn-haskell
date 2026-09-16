@@ -42,3 +42,9 @@ decode shift = encode (negate shift)
 -- 15
 digitSum :: Int -> Int
 digitSum = sum . map C.digitToInt . show
+
+-- | Find the first number whose digits add up to N
+-- >>> firstTo 13
+-- Just 49
+firstTo :: Int -> Maybe Int
+firstTo n = L.find (\x -> digitSum x == n) [1 ..]
