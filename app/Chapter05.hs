@@ -91,3 +91,12 @@ mapR f xs = foldr (\x acc -> f x : acc) [] xs
 -- False
 elem' :: Eq a => a -> [a] -> Bool
 elem' y ys = foldr (\x acc -> if x == y then True else acc) False ys
+
+-- | Extract the maximum value from the list
+-- >>> maximum' [1..10]
+-- 10
+-- >>> maximum' []
+-- Prelude.foldl1: empty list
+-- IPE backtrace:
+maximum' :: Ord a => [a] -> a
+maximum' = foldl1 max
