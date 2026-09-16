@@ -79,10 +79,10 @@ sum' = foldl (+) 0
 
 -- 無限リストを評価させるとぶっ壊れる
 mapL :: (a -> b) -> [a] -> [b]
-mapL f xs = foldl (\acc x -> acc ++ [f x]) [] xs
+mapL f = foldl (\acc x -> acc ++ [f x]) []
 
 mapR :: (a -> b) -> [a] -> [b]
-mapR f xs = foldr (\x acc -> f x : acc) [] xs
+mapR f = foldr (\x acc -> f x : acc) []
 
 -- | Check if it's on the list
 -- >>> elem' 5 [1..5]
@@ -90,7 +90,7 @@ mapR f xs = foldr (\x acc -> f x : acc) [] xs
 -- >>> elem' 5 [1..4]
 -- False
 elem' :: Eq a => a -> [a] -> Bool
-elem' y ys = foldr (\x acc -> if x == y then True else acc) False ys
+elem' y = foldr (\x acc -> if x == y then True else acc) False
 
 -- | Extract the maximum value from the list
 -- >>> maximum' [1..10]
