@@ -59,6 +59,17 @@ phoneBook =
     ("penny", "666-7777")
   ]
 
+phoneBook' :: M.Map String String
+phoneBook' =
+  M.fromList $
+    [ ("betty", "111-2222"),
+      ("bonnie", "222-3333"),
+      ("patsy", "333-4444"),
+      ("lucille", "444-5555"),
+      ("wendy", "555-6666"),
+      ("penny", "666-7777")
+    ]
+
 -- Find a key from an association list
 -- >>> findKey "betty" phoneBook
 -- Just "111-2222"
@@ -67,3 +78,11 @@ phoneBook =
 findKey :: Eq k => k -> [(k, v)] -> Maybe v
 findKey key [] = Nothing
 findKey key xs = foldr (\(k, v) acc -> if key == k then Just v else acc) Nothing xs
+
+-- | Convert the string of a phone number into an Int list
+-- >>> stringToDigits "948-9282"
+-- [9,4,8,9,2,8,2]
+-- >>> M.lookup "betty" $ M.map stringToDigits phoneBook'
+-- Just [1,1,1,2,2,2,2]
+stringToDigits :: String -> [Int]
+stringToDigits = map C.digitToInt . filter C.isDigit
