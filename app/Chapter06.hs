@@ -14,4 +14,4 @@ wawee = "wa wa wee wa wee"
 -- >>> wordNum wawee
 -- [("wa",3),("wee",2)]
 wordNum :: String -> [(String, Int)]
-wordNum xs = map (\ws -> (head ws, length ws)) (L.group (L.sort (L.words xs)))
+wordNum = map (\ws -> (head ws, length ws)) . L.group . L.sort . L.words
