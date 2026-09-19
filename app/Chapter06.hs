@@ -61,7 +61,7 @@ phoneBook =
 
 phoneBook' :: M.Map String String
 phoneBook' =
-  M.fromList $
+  M.fromList
     [ ("betty", "111-2222"),
       ("bonnie", "222-3333"),
       ("patsy", "333-4444"),
