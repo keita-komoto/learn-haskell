@@ -104,3 +104,9 @@ phoneBook'' =
 -- Just "555-3333, 222-5555, 333-4444"
 phoneBookToMap :: Ord k => [(k, String)] -> M.Map k String
 phoneBookToMap = M.fromListWith add where add number1 number2 = number1 ++ ", " ++ number2
+
+-- | Merge if keys overlap with list
+-- >>> M.lookup "patsy" $ phoneBookToMap' phoneBook''
+-- Just ["555-3333","222-5555","333-4444"]
+phoneBookToMap' :: Ord k => [(k, a)] -> M.Map k [a]
+phoneBookToMap' xs = M.fromListWith (++) $ map (\(k, v) -> (k, [v])) xs
