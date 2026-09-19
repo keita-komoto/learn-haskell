@@ -86,3 +86,23 @@ findKey key xs = foldr (\(k, v) acc -> if key == k then Just v else acc) Nothing
 -- Just [1,1,1,2,2,2,2]
 stringToDigits :: String -> [Int]
 stringToDigits = map C.digitToInt . filter C.isDigit
+
+phoneBook'' =
+  [ ("betty", "111-2222"),
+    ("betty", "222-2222"),
+    ("bonnie", "222-3333"),
+    ("patsy", "333-4444"),
+    ("patsy", "222-5555"),
+    ("patsy", "555-3333"),
+    ("lucille", "444-5555"),
+    ("wendy", "555-6666"),
+    ("penny", "666-7777")
+  ]
+
+-- | Merge if keys overlap
+-- >>> M.lookup "patsy" $ phoneBookToMap phoneBook''
+-- Just "555-3333, 222-5555, 333-4444"
+phoneBookToMap :: Ord k => [(k, String)] -> M.Map k String
+phoneBookToMap xs = M.fromListWith add xs
+  where
+    add number1 number2 = number1 ++ ", " ++ number2
