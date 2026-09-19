@@ -30,7 +30,7 @@ needle `isIn` haystack = any (needle `L.isPrefixOf`) $ L.tails haystack
 -- >>> encode 3 "hey mark"
 -- "kh|#pdun"
 encode :: Int -> String -> String
-encode offset = map (\c -> C.chr $ C.ord c + offset)
+encode offset = map $ C.chr . (offset +) . C.ord
 
 -- | Decode a Caesar cipher
 -- >>> decode 3 "kh|#pdun"
