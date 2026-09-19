@@ -103,6 +103,6 @@ phoneBook'' =
 -- >>> M.lookup "patsy" $ phoneBookToMap phoneBook''
 -- Just "555-3333, 222-5555, 333-4444"
 phoneBookToMap :: Ord k => [(k, String)] -> M.Map k String
-phoneBookToMap xs = M.fromListWith add xs
+phoneBookToMap = M.fromListWith add
   where
     add number1 number2 = number1 ++ ", " ++ number2
