@@ -13,6 +13,7 @@ library
     Chapter05
     Chapter06
     Chapter06.Geometry
+    Chapter07
 
   hs-source-dirs: app
   build-depends:
