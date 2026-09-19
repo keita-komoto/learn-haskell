@@ -74,6 +74,7 @@ chain n
 numLongChains :: Int
 numLongChains = length (filter (\xs -> length xs > 15) (map chain [1 .. 100]))
 
+{- HLINT ignore "Use sum" -}
 sum' :: Num a => [a] -> a
 sum' = foldl (+) 0
 
@@ -81,6 +82,7 @@ sum' = foldl (+) 0
 mapL :: (a -> b) -> [a] -> [b]
 mapL f = foldl (\acc x -> acc ++ [f x]) []
 
+{- HLINT ignore "Use map" -}
 mapR :: (a -> b) -> [a] -> [b]
 mapR f = foldr (\x acc -> f x : acc) []
 
@@ -95,6 +97,8 @@ elem' y = foldr (\x acc -> if x == y then True else acc) False
 -- | Extract the maximum value from the list
 -- >>> maximum' [1..10]
 -- 10
+
+{- HLINT ignore "Use maximum" -}
 maximum' :: Ord a => [a] -> a
 maximum' = foldl1 max
 
