@@ -1,6 +1,11 @@
 module Chapter07 where
 
 data Shape = Circle Float Float Float | Rectangle Float Float Float Float
+  deriving Show
+
+-- | Display the string of the calculation formula
+-- >>> Circle 10 20 10
+-- Circle 10.0 20.0 10.0
 
 -- | Calculate the area of a circle
 -- >>> area $ Circle 10 20 10
