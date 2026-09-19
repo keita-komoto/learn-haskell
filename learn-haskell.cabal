@@ -12,9 +12,12 @@ library
     Chapter04
     Chapter05
     Chapter06
+    Chapter06.Geometry
 
   hs-source-dirs: app
-  build-depends: containers ^>=0.7, base
+  build-depends:
+    base,
+    containers ^>=0.7,
 
 test-suite test
   type: exitcode-stdio-1.0
